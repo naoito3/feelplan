@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カレンダー共有アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>カレンダー共有アプリ</h1>
+            <button id="newEventBtn" class="new-event-btn">新しいイベント</button>
+        </header>
+        
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button id="prevMonth">&lt;</button>
+                <h2 id="currentMonth"></h2>
+                <button id="nextMonth">&gt;</button>
+            </div>
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- カレンダーがここに生成されます -->
+            </div>
+        </div>
+    </div>
+
+    <!-- イベント作成モーダル -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>新しいイベント</h3>
+            <form id="eventForm">
+                <div class="form-group">
+                    <label for="eventLocation">場所:</label>
+                    <input type="text" id="eventLocation" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventName">レッスン名:</label>
+                    <input type="text" id="eventName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventDate">日付:</label>
+                    <input type="date" id="eventDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="startTime">開始時刻:</label>
+                    <input type="time" id="startTime" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="endTime">終了時刻:</label>
+                    <input type="time" id="endTime" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="instructor">インストラクター名:</label>
+                    <input type="text" id="instructor" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventColor">カラー:</label>
+                    <select id="eventColor" required>
+                        <option value="#ff6b6b">赤</option>
+                        <option value="#ff9f43">オレンジ</option>
+                        <option value="#feca57">黄</option>
+                        <option value="#48dbfb">水色</option>
+                        <option value="#0abde3">青</option>
+                        <option value="#006ba6">濃青</option>
+                        <option value="#1dd1a1">エメラルド</option>
+                        <option value="#10ac84">緑</option>
+                        <option value="#2d98da">スカイブルー</option>
+                        <option value="#a55eea">紫</option>
+                        <option value="#8c7ae6">薄紫</option>
+                        <option value="#ff6348">トマト</option>
+                        <option value="#ff9ff3">ピンク</option>
+                        <option value="#fd79a8">ローズ</option>
+                        <option value="#ee5a6f">深紅</option>
+                        <option value="#c44569">マゼンタ</option>
+                        <option value="#786fa6">グレー紫</option>
+                        <option value="#f8b500">ゴールド</option>
+                        <option value="#3c6382">ネイビー</option>
+                        <option value="#40407a">インディゴ</option>
+                    </select>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" id="cancelBtn">キャンセル</button>
+                    <button type="submit">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- イベント詳細モーダル -->
+    <div id="eventDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="detailClose">&times;</span>
+            <h3>イベント詳細</h3>
+            <div class="event-detail">
+                <div class="detail-item">
+                    <strong>レッスン名:</strong>
+                    <span id="detailName"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>場所:</strong>
+                    <span id="detailLocation"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>日付:</strong>
+                    <span id="detailDate"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>時間:</strong>
+                    <span id="detailTime"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>インストラクター:</strong>
+                    <span id="detailInstructor"></span>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" id="editEventBtn">編集</button>
+                <button type="button" id="deleteEventBtn">削除</button>
+                <button type="button" id="closeDetailBtn">閉じる</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script-db.js"></script>
+</body>
+</html>

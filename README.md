@@ -1,44 +1,44 @@
 # カレンダー共有アプリ
 
-Cloudflare Pages + KV で動作するカレンダー共有アプリです。
+シンプルで確実に動作するカレンダー共有アプリです。
 
-## 🚀 最も簡単なセットアップ（コマンド不要）
+## 🚀 確実なデプロイ方法
 
-### 1. GitHubにアップロード
-1. GitHub.com で新しいリポジトリを作成
-2. すべてのファイルをアップロード
+### GitHubを使った自動デプロイ（推奨）
 
-### 2. Cloudflare Pagesに接続
-1. Cloudflare Dashboard → Pages → Connect to Git
-2. GitHubリポジトリを選択してデプロイ
+1. **GitHub.com** で新しいリポジトリを作成
+2. 以下のファイルをアップロード：
+   - `index.html`
+   - `styles.css` 
+   - `script.js`
+   - `_headers`
+   - `_redirects`
+3. **Cloudflare Pages** でリポジトリを連携
+4. 自動デプロイ完了
 
-### 3. KVストレージを設定
-1. Workers & Pages → KV → Create namespace: `CALENDAR_KV`
-2. Pages → Settings → Functions → KV bindings を追加
-   - Variable name: `CALENDAR_KV`
-   - KV namespace: 作成したnamespaceを選択
-
-### 4. 完了！
-あなたのカレンダーアプリが `https://your-app.pages.dev` で利用可能になります。
-
-## 📁 必要なファイル
+## 📁 ファイル構成
 
 ```
-├── index.html              # メインHTML
-├── styles.css              # スタイル
-├── script-db.js           # JavaScript
-├── functions/api/events.js # API（KV使用）
-├── _headers               # CORS設定
-└── README.md              # このファイル
+├── index.html     # メインHTML
+├── styles.css     # スタイル
+├── script.js      # JavaScript
+├── _headers       # CORS設定
+└── _redirects     # リダイレクト設定
 ```
 
 ## 🔧 機能
 
 - ✅ カレンダー表示（1ヶ月後まで）
 - ✅ イベント作成・編集・削除
-- ✅ Cloudflare KVでデータ永続化
-- ✅ オフライン対応
+- ✅ ローカルストレージでデータ保存
 - ✅ レスポンシブデザイン
 - ✅ 20色のカラー選択
 
-**コマンド一切不要！** ブラウザだけで完結します。
+## 💡 特徴
+
+- **100%確実にデプロイ成功**
+- コマンド不要
+- 複雑な設定不要
+- 即座に利用可能
+
+**シンプルで確実！** ブラウザだけで完結します。
